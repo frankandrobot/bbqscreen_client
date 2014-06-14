@@ -392,7 +392,7 @@ void ScreenForm::keyReleaseEvent(QKeyEvent *evt)
 		{
 			// Route the key to the server
 #if defined(PLAT_WINDOWS) || defined(PLAT_LINUX)
-			sendKeyboardInput(false, evt->nativeScanCode());
+		  sendKeyboardInput(false, evt->nativeScanCode() - 8);
 #elif defined(PLAT_APPLE)
 			sendKeyboardInput(false, evt->key());
 #else
@@ -418,7 +418,8 @@ void ScreenForm::keyPressEvent(QKeyEvent *evt)
 		{
 			// Route the key to the server
 #if defined(PLAT_WINDOWS) || defined(PLAT_LINUX)
-			sendKeyboardInput(true, evt->nativeScanCode());
+		  qDebug() << "Input char is " << evt->text();
+			sendKeyboardInput(true, evt->nativeScanCode() - 8);
 #elif defined(PLAT_APPLE)
 			char inputChar = evt->text().at(0).toLatin1();
 			qDebug() << "Input char is " << inputChar;
