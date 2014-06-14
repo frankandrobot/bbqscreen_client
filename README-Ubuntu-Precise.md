@@ -1,5 +1,7 @@
 # Ubuntu Precise Notes
 
+These are the notes to compile BBQScreen client in Ubuntu Precise 12.04.
+
 ## Qt5
 It seems that you need to manually compile Qt5. The instructions at http://qt-project.org/wiki/Building_Qt_5_from_Git are for the most part accurate.
 
